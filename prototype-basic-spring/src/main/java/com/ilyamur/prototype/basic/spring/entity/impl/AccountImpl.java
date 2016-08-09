@@ -21,8 +21,13 @@ public class AccountImpl implements Account {
 
     private volatile AccountDto dto;
 
-    private AccountImpl(AccountDto dto) {
+    @Override
+    public void setDto(AccountDto dto) {
         this.dto = dto;
+    }
+
+    private AccountDto getDtoCopy() {
+        return dto.copy();
     }
 
     @Override
@@ -33,11 +38,11 @@ public class AccountImpl implements Account {
 
         AccountImpl otherImpl = (AccountImpl) other;
 
-        this.save();
-        otherImpl.save();
+        this.setDto(mapper.save(this.getDtoCopy()));
+        otherImpl.setDto(mapper.save(otherImpl.getDtoCopy()));
 
-        AccountDto thisUpdDto = incAccountDto(this, -amountKop);
-        AccountDto otherUpdDto = incAccountDto(otherImpl, amountKop);
+        AccountDto thisUpdDto = incAmountKop(this.getDtoCopy(), -amountKop);
+        AccountDto otherUpdDto = incAmountKop(otherImpl.getDtoCopy(), amountKop);
 
         AccountDto thisNewDto = mapper.save(thisUpdDto);
         AccountDto otherNewDto = mapper.save(otherUpdDto);
@@ -53,19 +58,13 @@ public class AccountImpl implements Account {
         setDto(byId);
     }
 
-    private AccountDto incAccountDto(AccountImpl account, long amountKop) throws InsufficientFundsException {
-        AccountDto accountDto = account.dto.copy();
-        long updAmountKop = accountDto.getAmountKop() + amountKop;
+    private AccountDto incAmountKop(AccountDto dto, long amountKop) throws InsufficientFundsException {
+        long updAmountKop = dto.getAmountKop() + amountKop;
         if (updAmountKop >= 0) {
-            accountDto.setAmountKop(updAmountKop);
-            return accountDto;
+            dto.setAmountKop(updAmountKop);
+            return dto;
         } else {
             throw new InsufficientFundsException();
         }
-    }
-
-    @Override
-    public void save() {
-        setDto(mapper.save(dto));
     }
 }
