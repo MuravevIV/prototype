@@ -2,7 +2,7 @@ package com.ilyamur.prototype.basic.spring;
 
 import com.ilyamur.prototype.basic.spring.entity.Product;
 import com.ilyamur.prototype.basic.spring.dto.ProductDto;
-import com.ilyamur.prototype.basic.spring.factory.ProductFactory;
+import com.ilyamur.prototype.basic.spring.provider.ProductProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class Application {
     private final static Logger LOG = LoggerFactory.getLogger(Application.class);
 
     @Autowired
-    private ProductFactory productFactory;
+    private ProductProvider productFactory;
 
     /**
      * Main application body.
