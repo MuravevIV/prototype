@@ -1,8 +1,8 @@
 package com.ilyamur.prototype.basic.spring;
 
-import com.ilyamur.prototype.basic.spring.domain.Product;
-import com.ilyamur.prototype.basic.spring.domain.dto.ProductDto;
-import com.ilyamur.prototype.basic.spring.domain.factory.ProductFactory;
+import com.ilyamur.prototype.basic.spring.entity.Product;
+import com.ilyamur.prototype.basic.spring.dto.ProductDto;
+import com.ilyamur.prototype.basic.spring.factory.ProductFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

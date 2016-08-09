@@ -1,5 +1,6 @@
-package com.ilyamur.prototype.basic.spring.service;
+package com.ilyamur.prototype.basic.spring.service.impl;
 
+import com.ilyamur.prototype.basic.spring.service.DiscountService;
 import org.springframework.stereotype.Component;
 
 @Component

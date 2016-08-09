@@ -1,7 +1,8 @@
-package com.ilyamur.prototype.basic.spring.domain.factory;
+package com.ilyamur.prototype.basic.spring.factory.impl;
 
-import com.ilyamur.prototype.basic.spring.domain.Product;
-import com.ilyamur.prototype.basic.spring.domain.dto.ProductDto;
+import com.ilyamur.prototype.basic.spring.entity.Product;
+import com.ilyamur.prototype.basic.spring.dto.ProductDto;
+import com.ilyamur.prototype.basic.spring.factory.ProductFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,7 @@
-package com.ilyamur.prototype.basic.spring.domain;
+package com.ilyamur.prototype.basic.spring.entity.impl;
 
-import com.ilyamur.prototype.basic.spring.domain.dto.ProductDto;
+import com.ilyamur.prototype.basic.spring.dto.ProductDto;
+import com.ilyamur.prototype.basic.spring.entity.Product;
 import com.ilyamur.prototype.basic.spring.service.DiscountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;

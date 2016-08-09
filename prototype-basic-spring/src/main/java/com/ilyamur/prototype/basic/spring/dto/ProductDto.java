@@ -1,4 +1,4 @@
-package com.ilyamur.prototype.basic.spring.domain.dto;
+package com.ilyamur.prototype.basic.spring.dto;
 
 public class ProductDto {
 
