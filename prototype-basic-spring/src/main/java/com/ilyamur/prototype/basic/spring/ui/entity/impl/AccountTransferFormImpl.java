@@ -21,13 +21,26 @@ public class AccountTransferFormImpl implements AccountTransferForm {
         this.dto = dto;
     }
 
-    public void transferCommand(long idAccountFrom, long idAccountTo, long amountKop) {
-        Account accountFrom = accountProvider.get(idAccountFrom);
-        Account accountTo = accountProvider.get(idAccountTo);
+    @Override
+    public void transferCommand() {
+        Account accountFrom = accountProvider.load(dto.getAccountFromDto().getId());
+        Account accountTo = accountProvider.load(dto.getAccountToDto().getId());
         try {
-            accountFrom.transferTo(accountTo, amountKop);
+            accountFrom.transferTo(accountTo, dto.getAmountKop());
+            dto.setAmountKop(0);
+            dto.setSuccessMessage("ok");
+            dto.setFailureMessage("");
         } catch (InsufficientFundsException e) {
-            //
+            dto.setSuccessMessage("");
+            dto.setFailureMessage("Insufficient funds.");
         }
+        dto.setAccountFromDto(accountFrom.getDtoCopy());
+        dto.setAccountToDto(accountTo.getDtoCopy());
+        save();
+    }
+
+    @Override
+    public void save() {
+        // UIForm update
     }
 }

@@ -7,6 +7,8 @@ public interface Account {
 
     void setDto(AccountDto dto);
 
+    AccountDto getDtoCopy();
+
     void transferTo(Account other, long amountKop) throws InsufficientFundsException;
 
     void load();

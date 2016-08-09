@@ -26,7 +26,8 @@ public class AccountImpl implements Account {
         this.dto = dto;
     }
 
-    private AccountDto getDtoCopy() {
+    @Override
+    public AccountDto getDtoCopy() {
         return dto.copy();
     }
 

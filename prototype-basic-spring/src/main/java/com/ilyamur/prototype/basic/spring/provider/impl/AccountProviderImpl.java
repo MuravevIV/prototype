@@ -21,7 +21,7 @@ public class AccountProviderImpl implements AccountProvider {
     }
 
     @Override
-    public Account get(long idAccount) {
+    public Account load(long idAccount) {
         AccountDto dto = new AccountDto();
         dto.setId(idAccount);
         Account account = create(dto);

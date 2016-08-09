@@ -7,5 +7,5 @@ public interface AccountProvider {
 
     Account create(AccountDto dto);
 
-    Account get(long idAccountFrom);
+    Account load(long idAccountFrom);
 }
