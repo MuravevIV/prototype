@@ -52,10 +52,15 @@ public class AccountImpl implements Account {
     }
 
     @Override
-    public void sync() {
+    public void load() {
         long id = dto.getId();
         AccountDto byId = mapper.findById(id);
         setDto(byId);
+    }
+
+    @Override
+    public void save() {
+        setDto(mapper.save(dto));
     }
 
     private AccountDto incAmountKop(AccountDto dto, long amountKop) throws InsufficientFundsException {

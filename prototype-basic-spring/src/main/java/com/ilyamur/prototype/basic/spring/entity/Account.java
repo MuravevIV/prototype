@@ -9,5 +9,7 @@ public interface Account {
 
     void transferTo(Account other, long amountKop) throws InsufficientFundsException;
 
-    void sync();
+    void load();
+
+    void save();
 }

@@ -25,7 +25,7 @@ public class AccountProviderImpl implements AccountProvider {
         AccountDto dto = new AccountDto();
         dto.setId(idAccount);
         Account account = create(dto);
-        account.sync();
+        account.load();
         return account;
     }
 }
